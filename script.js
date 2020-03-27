@@ -3,9 +3,10 @@ const nextQuestionOne = document.getElementById('next-question');
 const nextQuestionTwo = document.getElementById('next-question2');
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
- 
+const rotateQuestions = document.querySelector(".carousel")
+
 const quiz = ['nextQuestionOne', 'nextQuestionTwo'];
-const quizIndex = 0;
+const i = 0;
 
 var secondsLeft = 60;
 
@@ -38,9 +39,11 @@ function countdownToGame() {
   
   countdownToGame();
 
-  startQuiz.onclick = function(){
-  quiz.style.display = 'block';
-  
-  startQuiz.addEventListener("click", function() {
+  startQuiz.onclick = function(direction){
+    if (i = 0) {
+    quiz++
+    quiz.style.display = 'block';
+    }
+  startQuiz.addEventListener("click", function(event) {
     event.stopPropagation();
   })};
