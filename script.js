@@ -1,7 +1,11 @@
 const startQuiz = document.getElementById('start');
-const nextQuestion = document.getElementById('next-question');
+const nextQuestionOne = document.getElementById('next-question');
+const nextQuestionTwo = document.getElementById('next-question2');
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
+ 
+const quiz = ['nextQuestionOne', 'nextQuestionTwo'];
+const quizIndex = 0;
 
 var secondsLeft = 60;
 
@@ -34,6 +38,9 @@ function countdownToGame() {
   
   countdownToGame();
 
-  nextQuestion.addEventListener("click", function() {
-  //  window.location.href = images[index];
-  //});
+  startQuiz.onclick = function(){
+  quiz.style.display = 'block';
+  
+  startQuiz.addEventListener("click", function() {
+    event.stopPropagation();
+  })};
