@@ -1,11 +1,34 @@
-const startQuiz = document.getElementById('start');
-const nextQuestionOne = document.getElementById('next-question');
-const nextQuestionTwo = document.getElementById('next-question2');
+const startQuiz = document.getElementById("start");
+let questionOne = document.getElementById("next-question");
+
+const questionTwo = document.getElementById('next-question2');
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
-const rotateQuestions = document.querySelector(".carousel")
 
-const quiz = ['nextQuestionOne', 'nextQuestionTwo'];
+startQuiz.addEventListener("click", function() {
+questionOne.style.display = 'block'
+  });
+
+let startQuestionOne = {
+    'Commonly used data types DO NOT include:': {
+        1: 'Strings',
+        2: 'Booleans',
+        3: 'Alerts',
+        4: 'Numbers'
+    } 
+}
+
+console.log(questionOne);
+//let questionTwo = {
+//    'Arrays in JavaScript can be used to store:': {
+//        1: 'Numbers and strings',
+//        2: 'Other arrays',
+//        3: 'Booleans',
+//        4: 'All of the above'
+//    } 
+//}
+
+const quiz = ['startQuestionOne', 'nextQuestionTwo'];
 const i = 0;
 
 var secondsLeft = 60;
@@ -22,11 +45,12 @@ function countdownToGame() {
   
       if(secondsLeft === 0) {
         clearInterval(timerInterval);
-        sendMessage();
+//        sendMessage();
       }
-  
     }, 1000);
-  }
+}
+
+countdownToGame();
   
   //function endGame() {
   //  countdown.textContent = " ";
@@ -37,13 +61,4 @@ function countdownToGame() {
   
   //}
   
-  countdownToGame();
-
-  startQuiz.onclick = function(direction){
-    if (i = 0) {
-    quiz++
-    quiz.style.display = 'block';
-    }
-  startQuiz.addEventListener("click", function(event) {
-    event.stopPropagation();
-  })};
+  //countdownToGame();
