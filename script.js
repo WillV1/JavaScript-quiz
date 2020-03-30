@@ -1,31 +1,33 @@
-const carousel = document.querySelector(".carouselbox");
+
 const startQuiz = document.getElementById("start");
 const questionOne = document.getElementById("next-question");
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
 
-let counter = 0;
 
 let questions = ['Commonly used data types DO NOT include:, 1. strings, 2. arrays, 3. booleans, 4. numbers']
 
-let amount = questions.length;
-  let current = questions[0];
-  carousel.classList.add('active');
-  function navigate(direction) {
-    counter = counter + direction;
-    if (direction === -1 && 
-        counter < 0) { 
-      counter = amount - 1; 
-    }
-    if (direction === 1 && 
-        !questions[counter]) { 
-      counter = 0;
-    }
+var carousel = document.querySelector(".carouselbox");
+
+var index = 0;
+
+function navigate(direction) {
+  index = index + direction;
+  if (index < 0) { 
+    index = questions.length - 1; 
+  } else if (index > questions.length - 1) { 
+    index = 0;
   }
-  startQuiz.addEventListener('click', function(ev) {
-    navigate(1);
-  });
-  navigate(0);
+  carousel.style.display = 'block';
+}
+
+carousel.addEventListener("click", function(event) {
+  event.stopPropagation();
+
+  navigate(1);
+});
+
+navigate(0);
 
 //let questionTwo = {
 //    'Arrays in JavaScript can be used to store:': {
