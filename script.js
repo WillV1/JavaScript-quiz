@@ -4,31 +4,14 @@ const questionOne = document.getElementById("next-question");
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
 
+let question = ['Common data types DO NOT include:']
 
-let questions = ['Commonly used data types DO NOT include:, 1. strings, 2. arrays, 3. booleans, 4. numbers']
 
-var carousel = document.querySelector(".carouselbox");
-
-var index = 0;
-
-function navigate(direction) {
-  index = index + direction;
-  if (index < 0) { 
-    index = questions.length - 1; 
-  } else if (index > questions.length - 1) { 
-    index = 0;
-  }
-  carousel.style.display = 'block';
+function myFunction(){
+    alert(question)
 }
 
-carousel.addEventListener("click", function(event) {
-  event.stopPropagation();
-
-  navigate(1);
-});
-
-navigate(0);
-
+startQuiz.onclick = myFunction;
 //let questionTwo = {
 //    'Arrays in JavaScript can be used to store:': {
 //        1: 'Numbers and strings',
