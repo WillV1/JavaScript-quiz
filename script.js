@@ -4,9 +4,10 @@ const question = document.getElementById("next-question");
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
 
-let questions = ['Common data types DO NOT include:']
 
 function carousel(){
+    const questions = ['Common data types DO NOT include:']
+    console.log(questions);
     let box = document.querySelector('.carouselbox');
     let start = document.getElementById("start");
     let counter = 0;
@@ -32,7 +33,6 @@ function carousel(){
     });
     navigate(0);
     }
-
 
 function myFunction(){
     question.style.display = ['Common data types DO NOT include:']
