@@ -32,6 +32,6 @@
     text-align: center;
 }
 
-#next-question {
-    text-align: center;
+.card1 {
+    display: none;
 }

@@ -1,30 +1,20 @@
-var carousel = document.querySelector(".carouselbox");
-const start = document.getElementById('start');
-var index = 0;
-var questions = [
-    'Common data types DO NOT include:',
-    'Arrays in JavaScript can be used to store:'
-];
-var currentQuestion;
-function navigate(direction) {
-  index = index + direction;
-  if (index < 0) { 
-    index = questions.length - 1; 
-  } else if (index > questions.length - 1) { 
-    index = 0;
-  }
-  currentQuestion = questions[index];
+start = document.getElementById("start");
+cardOne = document.querySelector('.card1');
+
+function quizQuestionOne () {
+let questionOne = {
+    'Question':'Commonly used data types DO NOT include:',
+    'Answer:':['Strings', 'Booleans',' Alerts', 'Numbers']   
+}
+start.style.display = 'block'
+    console.log(questionOne);
 }
 
-start.addEventListener("click", function(event) {
-  event.stopPropagation();
+start.onclick = quizQuestionOne;
 
-  navigate(1);
-});
 
-navigate(0);
 
-//const next = document.getElementById('nextquestion');
+
 
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
