@@ -15,7 +15,7 @@ function carousel(){
     let current = questions[0];
     box.classList.add('active');
     function navigate(direction) {
-        current.classList.remove('current');
+        nextquestion.classList.remove('nextquestion');
         counter = counter + direction;
         if (direction === -1 && 
             counter < 0) {
@@ -25,23 +25,16 @@ function carousel(){
             !questions[counter]) {
             counter = 0
             }
-        current = questions[counter];
-        current.classList.add('current');        
+        nextquestion2 = questions[counter];
+        nextquestion.classList.add('nextquestion');        
     }
-    next.addEventListener('click', function(ev) {
+    start.addEventListener('click', function(ev) {
         navigate(1);
     });
     navigate(0);
     }
-
-function myFunction(){
-    question.style.display = ['Common data types DO NOT include:']
-    console.log(question);
-} 
-
-question.onclick = myFunction;
-
-question.addEventListener('click', myFunction);
+ 
+    carousel();
 //let questionTwo = {
 //    'Arrays in JavaScript can be used to store:': {
 //        1: 'Numbers and strings',
