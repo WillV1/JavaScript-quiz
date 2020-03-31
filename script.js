@@ -1,40 +1,31 @@
-
-
-const question = document.getElementById("next-question");
+const next = document.getElementById('nextquestion');
+const start = document.getElementById('start');
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
 
+function startQuiz(){
+let index = 0;
+const questions = ['Common data types DO NOT include:']
+let currentQuestion;
+function navigate(direction) {
+  index = index + direction;
+  if (index < 0) { 
+    index = questions.length - 1; 
+  } else if (index > questions.length - 1) { 
+    index = 0;
+  }
+  currentQuestions = questions[index];
+}
+next.addEventListener("click", function(event) {
+    event.stopPropagation();
+  
+    navigate(1);
+});
+console.log(questions);
+navigate(0);
+}
 
-function carousel(){
-    const questions = ['Common data types DO NOT include:']
-    console.log(questions);
-    let box = document.querySelector('.carouselbox');
-    let start = document.getElementById("start");
-    let counter = 0;
-    let amount = questions.length;
-    let current = questions[0];
-    box.classList.add('active');
-    function navigate(direction) {
-        nextquestion.classList.remove('nextquestion');
-        counter = counter + direction;
-        if (direction === -1 && 
-            counter < 0) {
-                counter = amount - 1;
-            }
-        if (direction === 1 &&
-            !questions[counter]) {
-            counter = 0
-            }
-        nextquestion2 = questions[counter];
-        nextquestion.classList.add('nextquestion');        
-    }
-    start.addEventListener('click', function(ev) {
-        navigate(1);
-    });
-    navigate(0);
-    }
- 
-    carousel();
+start.onclick = startQuiz;
 //let questionTwo = {
 //    'Arrays in JavaScript can be used to store:': {
 //        1: 'Numbers and strings',
