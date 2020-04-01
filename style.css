@@ -32,6 +32,14 @@
     text-align: center;
 }
 
-.card1 {
+.questions {
     display: none;
+    height: 200px;
+    width: 200px;
+}
+
+.question-one {
+    display: none;
+    height: 200px;
+    width: 200px;
 }

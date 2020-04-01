@@ -1,18 +1,23 @@
-start = document.getElementById("start");
-cardOne = document.querySelector('.card1');
+let start = document.getElementById("start");
+let questions = document.querySelector('.questions');
+let questionOne = document.querySelector('.question-one');
 
 function quizQuestionOne () {
-let questionOne = {
+
+questions.style.display = "block";
+questionOne.style.display = "block";
+questionOne = {
     'Question':'Commonly used data types DO NOT include:',
     'Answer:':['Strings', 'Booleans',' Alerts', 'Numbers']   
 }
-start.style.display = 'block'
-    console.log(questionOne);
+alert(questionOne);
+console.log(questionOne);  
 }
+quizQuestionOne();
+start.addEventListener('click', quizQuestionOne);
 
-start.onclick = quizQuestionOne;
-
-
+//let element = document.getElementById('interact');
+//element.onclick = function() { element.style.backgroundColor = 'blue' };
 
 
 
