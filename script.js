@@ -6,10 +6,10 @@ function quizQuestionOne () {
 
 questions.style.display = "block";
 questions.textContent =  ['Question: Commonly used data types DO NOT include:',
-'Strings', 
-'Booleans',
-'Alerts', 
-'Numbers'
+'A: Strings', 
+'B: Booleans',
+'C: Alerts', 
+'D: Numbers'
 ]
 //questionOne.textContent = {
 //    'Question':'Commonly used data types DO NOT include:',
@@ -18,7 +18,6 @@ questions.textContent =  ['Question: Commonly used data types DO NOT include:',
 alert(questions);
 console.log(questions);  
 }
-quizQuestionOne();
 start.addEventListener('click', quizQuestionOne);
 
 //let element = document.getElementById('interact');
