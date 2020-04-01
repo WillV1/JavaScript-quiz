@@ -33,7 +33,7 @@
     text-align: center;
 }
 
-.questions, .questions2, .questions3{
+.questions, .questions-section-two{
     display: none;
     height: 200px;
     width: 200px;
