@@ -5,7 +5,6 @@ let questionOne = document.querySelector('.question-one');
 function quizQuestionOne () {
 
 questions.style.display = "block";
-questionOne.style.display = "block";
 questionOne = {
     'Question':'Commonly used data types DO NOT include:',
     'Answer:':['Strings', 'Booleans',' Alerts', 'Numbers']   
