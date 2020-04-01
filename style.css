@@ -3,7 +3,8 @@
     border-radius: 5px;
     color: white;
     text-align: center;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
 }
 
 .answer-button{
@@ -32,14 +33,25 @@
     text-align: center;
 }
 
-.questions {
+.questions, .questions2, .questions3{
     display: none;
     height: 200px;
     width: 200px;
 }
 
-.question-one {
-    display: none;
-    height: 200px;
-    width: 200px;
+.question {
+    text-align: center;
+}
+
+.answer {
+    text-align: center;
+    background-color: purple;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#time-up{
+    text-align: center;
 }
