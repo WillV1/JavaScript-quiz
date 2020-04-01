@@ -5,12 +5,18 @@ let questionOne = document.querySelector('.question-one');
 function quizQuestionOne () {
 
 questions.style.display = "block";
-questionOne = {
-    'Question':'Commonly used data types DO NOT include:',
-    'Answer:':['Strings', 'Booleans',' Alerts', 'Numbers']   
-}
-alert(questionOne);
-console.log(questionOne);  
+questions.textContent =  ['Question: Commonly used data types DO NOT include:',
+'Strings', 
+'Booleans',
+'Alerts', 
+'Numbers'
+]
+//questionOne.textContent = {
+//    'Question':'Commonly used data types DO NOT include:',
+//    'Answer:':['Strings', 'Booleans',' Alerts', 'Numbers']   
+//}
+alert(questions);
+console.log(questions);  
 }
 quizQuestionOne();
 start.addEventListener('click', quizQuestionOne);
