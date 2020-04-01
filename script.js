@@ -67,10 +67,10 @@ function quizTwo () {
         answerSecondThree.textContent = quizQuestionTwo[2];
         answerSecondFour.textContent = quizQuestionTwo[3];
     }
-    start.addEventListener('click', quizTwo);
-    start.addEventListener('click', quizTwo);
-    start.addEventListener('click', quizTwo);
-    start.addEventListener('click', quizTwo);
+    answerFirstOne.addEventListener('click', quizTwo);
+    answerFirstTwo.addEventListener('click', quizTwo);
+    answerFirstThree.addEventListener('click', quizTwo);
+    answerFirstFour.addEventListener('click', quizTwo);
 }
 //function quizThree () {
     
