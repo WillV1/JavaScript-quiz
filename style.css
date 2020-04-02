@@ -33,7 +33,7 @@
     text-align: center;
 }
 
-.questions, .questions-two, .questions-three, .question-four{
+.questions, .questions-two, .questions-three, .questions-four, .end-game{
     display: none;
     height: 200px;
     width: 200px;

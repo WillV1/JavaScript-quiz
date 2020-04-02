@@ -19,11 +19,13 @@ let answerThirdTwo = document.getElementById("answer3-two");
 let answerThirdThree = document.getElementById("answer3-three");
 let answerThirdFour = document.getElementById("answer3-four");
 
-let questionsSectionFour = document.querySelector('.questions-three');
-let answerFourthOne = document.getElementById("answer3-one");
-let answerFourthTwo = document.getElementById("answer3-two");
-let answerFourthThree = document.getElementById("answer3-three");
-let answerFourthFour = document.getElementById("answer3-four");
+let questionsSectionFour = document.querySelector('.questions-four');
+let answerFourthOne = document.getElementById("answer4-one");
+let answerFourthTwo = document.getElementById("answer4-two");
+let answerFourthThree = document.getElementById("answer4-three");
+let answerFourthFour = document.getElementById("answer4-four");
+
+let endGame = document.querySelector(".end-game");
 
 function quizOne () {
 let quizFirst = document.createElement('p');
@@ -110,32 +112,41 @@ function quizThree () {
     answerSecondFour.onclick = quizThree;   
 
     function quizFour () {
-        questionsSectionThree.style.display = "block";
-        questionsSectionTwo.style.display = "none";
-        let quizThird = document.createElement('p');
-        quizThird.id = 'question-three';     
-        quizThird.innerHTML = 'A very useful tool during development and debugging for printing content to the debugger is:';    
-        document.querySelector('.questions-three').insertBefore(quizThird, answerThirdOne);   
+        questionsSectionFour.style.display = "block";
+        questionsSectionThree.style.display = "none";
+        let quizFourth = document.createElement('p');
+        quizFourth.id = 'question-three';     
+        quizFourth.innerHTML = 'An unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs is known as a(n):';    
+        document.querySelector('.questions-four').insertBefore(quizFourth, answerFourthOne);   
         
-        const questionThree = {
-            'A:': 'JavaScript',
-            'B:': 'Terminal/Bash',
-            'C:': 'Console.log',
-            'D:': 'For Loops'
+        const questionFour = {
+            'A:': 'Object',
+            'B:': 'Array',
+            'C:': 'Function',
+            'D:': 'Loop'
         }    
-        const quizQuestionThree = Object.entries(questionThree);
+        const quizQuestionFour = Object.entries(questionFour);
        
-        for (i = 0; i < quizQuestionThree.length; i++){
-            answerThirdOne.textContent = quizQuestionThree[0];
-            answerThirdTwo.textContent = quizQuestionThree[1];
-            answerThirdThree.textContent = quizQuestionThree[2];
-            answerThirdFour.textContent = quizQuestionThree[3];
+        for (i = 0; i < quizQuestionFour.length; i++){
+            answerFourthOne.textContent = quizQuestionFour[0];
+            answerFourthTwo.textContent = quizQuestionFour[1];
+            answerFourthThree.textContent = quizQuestionFour[2];
+            answerFourthFour.textContent = quizQuestionFour[3];
         }
     }
-        answerSecondOne.onclick = quizThree;
-        answerSecondTwo.onclick = quizThree;
-        answerSecondThree.onclick = quizThree;
-        answerSecondFour.onclick = quizThree;  
+        answerThirdOne.onclick = quizFour;
+        answerThirdTwo.onclick = quizFour;
+        answerThirdThree.onclick = quizFour;
+        answerThirdFour.onclick = quizFour;
+         
+    function gameOver (){   
+        endGame.style.display = "block";
+        questionsSelectionFour.style.display = "none";
+        let allDone = document.createElement('p');
+        allDone.id = 
+    }
+
+
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
 
