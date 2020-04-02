@@ -33,7 +33,7 @@
     text-align: center;
 }
 
-.questions, .questions-section-two{
+.questions, .questions-two, .questions-three, .question-four{
     display: none;
     height: 200px;
     width: 200px;

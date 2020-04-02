@@ -1,28 +1,34 @@
 let start = document.getElementById("start");
+let startQuiz = document.querySelector(".start-page");
+let challenge = document.querySelector(".challenge");
 let questions = document.querySelector('.questions');
-//let questionOne = document.getElementById("question-one");
 let answerFirstOne = document.getElementById("answer1-one");
 let answerFirstTwo = document.getElementById("answer1-two");
 let answerFirstThree = document.getElementById("answer1-three");
 let answerFirstFour = document.getElementById("answer1-four");
 
-let questionsSectionTwo = document.querySelector('.questions-section-two');
-//let questionTwo = document.getElementById("question-two");
+let questionsSectionTwo = document.querySelector('.questions-two');
 let answerSecondOne = document.getElementById("answer2-one");
 let answerSecondTwo = document.getElementById("answer2-two");
 let answerSecondThree = document.getElementById("answer2-three");
 let answerSecondFour = document.getElementById("answer2-four");
 
+let questionsSectionThree = document.querySelector('.questions-three');
+let answerThirdOne = document.getElementById("answer3-one");
+let answerThirdTwo = document.getElementById("answer3-two");
+let answerThirdThree = document.getElementById("answer3-three");
+let answerThirdFour = document.getElementById("answer3-four");
 
-let questionThree = document.getElementById("question-three");
-let answerThreeOne = document.getElementById("answer3-one");
-let answerThreeTwo = document.getElementById("answer3-two");
-let answerThreeThree = document.getElementById("answer3-three");
-let answerThreeFour = document.getElementById("answer3-four");
+let questionsSectionFour = document.querySelector('.questions-three');
+let answerFourthOne = document.getElementById("answer3-one");
+let answerFourthTwo = document.getElementById("answer3-two");
+let answerFourthThree = document.getElementById("answer3-three");
+let answerFourthFour = document.getElementById("answer3-four");
 
 function quizOne () {
 let quizFirst = document.createElement('p');
-quizFirst.id = 'question-one';     
+quizFirst.id = 'question-one';
+quizFirst.style.textAlign = "center";     
 quizFirst.innerHTML = 'Commonly used data types DO NOT include:';    
 document.querySelector('.questions').insertBefore(quizFirst, answerFirstOne);   
 
@@ -35,6 +41,8 @@ const questionOne = {
 const quizQuestionOne = Object.entries(questionOne);
 console.log(quizQuestionOne);
 questions.style.display = "block";
+challenge.style.display = "none";
+startQuiz.style.display = "none";
 
 for (i = 0; i < quizQuestionOne.length; i++){
     answerFirstOne.textContent = quizQuestionOne[0];
@@ -42,15 +50,16 @@ for (i = 0; i < quizQuestionOne.length; i++){
     answerFirstThree.textContent = quizQuestionOne[2];
     answerFirstFour.textContent = quizQuestionOne[3];
 }
-alert(quizQuestionOne); 
 }
 start.addEventListener('click', quizOne);
 
 function quizTwo () {
+    questionsSectionTwo.style.display = "block";
+    questions.style.display = "none";
     let quizSecond = document.createElement('p');
     quizSecond.id = 'question-two';     
     quizSecond.innerHTML = 'Arrays in JavaScript can be used to store:';    
-    document.querySelector('questions-section-two').insertBefore(quizSecond, answerSecondOne);   
+    document.querySelector('.questions-two').insertBefore(quizSecond, answerSecondOne);   
     
     const questionTwo = {
         'A:': 'Other Arrays',
@@ -59,39 +68,78 @@ function quizTwo () {
         'D:': 'All of the Above'
     }    
     const quizQuestionTwo = Object.entries(questionTwo);
-    questionsSectionTwo.style.display = "block";
-    
+   
     for (i = 0; i < quizQuestionTwo.length; i++){
         answerSecondOne.textContent = quizQuestionTwo[0];
         answerSecondTwo.textContent = quizQuestionTwo[1];
         answerSecondThree.textContent = quizQuestionTwo[2];
         answerSecondFour.textContent = quizQuestionTwo[3];
     }
-    answerFirstOne.addEventListener('click', quizTwo);
-    answerFirstTwo.addEventListener('click', quizTwo);
-    answerFirstThree.addEventListener('click', quizTwo);
-    answerFirstFour.addEventListener('click', quizTwo);
 }
-//function quizThree () {
-    
-//    questionOne.textContent =  'A very useful tool during development and debugging for printing content to the debugger is:'
-//    answerFirstOne.textContent = 'A: JavaScript'
-//    answerFirstTwo.textContent = 'B: Terminal/Bash'
-//    answerFirstThree.textContent = 'C: For Loops' 
-//    answerFirstFour.textContent = 'D: Console.log' 
-//    }
-//    answerSecondOne.addEventListener('click', quizThree);
-//    answerSecondTwo.addEventListener('click', quizThree);
-//    answerSecondThree.addEventListener('click', quizThree);
-//    answerSecondFour.addEventListener('click', quizThree);   
+    answerFirstOne.onclick = quizTwo;
+    answerFirstTwo.onclick = quizTwo;
+    answerFirstThree.onclick = quizTwo;
+    answerFirstFour.onclick = quizTwo;
 
+function quizThree () {
+    questionsSectionThree.style.display = "block";
+    questionsSectionTwo.style.display = "none";
+    let quizThird = document.createElement('p');
+    quizThird.id = 'question-three';     
+    quizThird.innerHTML = 'A very useful tool during development and debugging for printing content to the debugger is:';    
+    document.querySelector('.questions-three').insertBefore(quizThird, answerThirdOne);   
+    
+    const questionThree = {
+        'A:': 'JavaScript',
+        'B:': 'Terminal/Bash',
+        'C:': 'Console.log',
+        'D:': 'For Loops'
+    }    
+    const quizQuestionThree = Object.entries(questionThree);
+   
+    for (i = 0; i < quizQuestionThree.length; i++){
+        answerThirdOne.textContent = quizQuestionThree[0];
+        answerThirdTwo.textContent = quizQuestionThree[1];
+        answerThirdThree.textContent = quizQuestionThree[2];
+        answerThirdFour.textContent = quizQuestionThree[3];
+    }
+}
+    answerSecondOne.onclick = quizThree;
+    answerSecondTwo.onclick = quizThree;
+    answerSecondThree.onclick = quizThree;
+    answerSecondFour.onclick = quizThree;   
+
+    function quizFour () {
+        questionsSectionThree.style.display = "block";
+        questionsSectionTwo.style.display = "none";
+        let quizThird = document.createElement('p');
+        quizThird.id = 'question-three';     
+        quizThird.innerHTML = 'A very useful tool during development and debugging for printing content to the debugger is:';    
+        document.querySelector('.questions-three').insertBefore(quizThird, answerThirdOne);   
+        
+        const questionThree = {
+            'A:': 'JavaScript',
+            'B:': 'Terminal/Bash',
+            'C:': 'Console.log',
+            'D:': 'For Loops'
+        }    
+        const quizQuestionThree = Object.entries(questionThree);
+       
+        for (i = 0; i < quizQuestionThree.length; i++){
+            answerThirdOne.textContent = quizQuestionThree[0];
+            answerThirdTwo.textContent = quizQuestionThree[1];
+            answerThirdThree.textContent = quizQuestionThree[2];
+            answerThirdFour.textContent = quizQuestionThree[3];
+        }
+    }
+        answerSecondOne.onclick = quizThree;
+        answerSecondTwo.onclick = quizThree;
+        answerSecondThree.onclick = quizThree;
+        answerSecondFour.onclick = quizThree;  
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
 
-
-
 var secondsLeft = 60;
-
 
 function countdownToGame() {
     const timerInterval = setInterval(function() {
@@ -104,12 +152,10 @@ function countdownToGame() {
       }
     }, 1500);
 }
-
-countdownToGame();
+start.addEventListener('click', countdownToGame);
   
   function endGame() {
   countdown.textContent = " ";
   const endCounter = timeUp.textContent = 'GAME OVER!';
   document.getElementsById('time-up').appendChild(endCounter);
   }
-  countdownToGame();

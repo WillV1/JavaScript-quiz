@@ -9,9 +9,11 @@
 <body>
     <span class="time"></span>
     <span class="highscore">View Highscores</span>
-    <h1 class="challenge">Coding Quiz Challenge</h1>
-    <p class="challenge">Try to answer the code-related questions within the time limit.<br> Keep in mind that incorrect answers will
+    <div class="challenge">
+        <h1>Coding Quiz Challenge</h1>
+        <p>Try to answer the code-related questions within the time limit.<br> Keep in mind that incorrect answers will
         penalize your score time by ten seconds.</p>
+    </div>
         <div class="start-page">
             <button id="start">Start Quiz</button>
         </div>    
@@ -25,7 +27,7 @@
             <button class="answer" id="answer1-four">
             </button>
         </div>
-        <div class="questions-section-two">
+        <div class="questions-two">
             <button class="answer" id="answer2-one">
             </button>
             <button class="answer" id="answer2-two">
@@ -34,10 +36,8 @@
             </button>
             <button class="answer" id="answer2-four">
             </button>
-        </div>
-        
-            <p class="question" id="question-three">
-            </p>
+        </div> 
+        <div class="questions-three">
             <button class="answer" id="answer3-one">
             </button>
             <button class="answer" id="answer3-two">
@@ -47,6 +47,16 @@
             <button class="answer" id="answer3-four">
             </button>
         </div>  
+        <div class="questions-four">
+            <button class="answer" id="answer3-one">
+            </button>
+            <button class="answer" id="answer3-two">
+            </button>
+            <button class="answer" id="answer3-three">
+            </button>
+            <button class="answer" id="answer3-four">
+            </button>
+        </div>   
     <h1 id="time-up"></h1>
     <script src="./script.js"></script>
 </body>
