@@ -1,25 +1,25 @@
 let start = document.getElementById("start");
 let startQuiz = document.querySelector(".start-page");
 let challenge = document.querySelector(".challenge");
-let questions = document.querySelector('.questions');
+let questions = GetElementByID('.question');
 let answerFirstOne = document.getElementById("answer1-one");
 let answerFirstTwo = document.getElementById("answer1-two");
 let answerFirstThree = document.getElementById("answer1-three");
 let answerFirstFour = document.getElementById("answer1-four");
 
-let questionsSectionTwo = document.querySelector('.questions-two');
+let questionsSectionTwo = getElementById('.question-two');
 let answerSecondOne = document.getElementById("answer2-one");
 let answerSecondTwo = document.getElementById("answer2-two");
 let answerSecondThree = document.getElementById("answer2-three");
 let answerSecondFour = document.getElementById("answer2-four");
 
-let questionsSectionThree = document.querySelector('.questions-three');
+let questionsSectionThree = getElementById('.question-three');
 let answerThirdOne = document.getElementById("answer3-one");
 let answerThirdTwo = document.getElementById("answer3-two");
 let answerThirdThree = document.getElementById("answer3-three");
 let answerThirdFour = document.getElementById("answer3-four");
 
-let questionsSectionFour = document.querySelector('.questions-four');
+let questionsSectionFour = getElementById('.question-four');
 let answerFourthOne = document.getElementById("answer4-one");
 let answerFourthTwo = document.getElementById("answer4-two");
 let answerFourthThree = document.getElementById("answer4-three");
@@ -27,7 +27,17 @@ let answerFourthFour = document.getElementById("answer4-four");
 
 let endGame = document.querySelector(".end-game");
 const score = document.querySelector(".score");
-const totalScore = 
+
+let responseYes = document.createElement('p');
+responseYes.id = 'response-yes'; 
+responseYes.innerHTML = 'Correct!';
+//document.querySelector(".questions").appendChild(responseYes);
+
+let responseNo = document.createElement('p');
+responseNo.id = 'response-no'; 
+responseNo.innerHTML = 'Incorrect!';
+//document.querySelector(".questions").appendChild(responseYes);
+
 
 function quizOne () {
 let quizFirst = document.createElement('p');
@@ -54,8 +64,14 @@ for (i = 0; i < quizQuestionOne.length; i++){
     answerFirstThree.textContent = quizQuestionOne[2];
     answerFirstFour.textContent = quizQuestionOne[3];
 }
+if (answerFirstThree.onclick){
+    responseYes.style.display = "Correct!";
+} else {
+    responseNo.style.display = "Incorrect!"
+}
 }
 start.addEventListener('click', quizOne);
+
 
 function quizTwo () {
     questionsSectionTwo.style.display = "block";
@@ -141,15 +157,15 @@ function quizThree () {
         answerThirdThree.onclick = quizFour;
         answerThirdFour.onclick = quizFour;
          
-    function gameOver (){   
+    function theEnd (){   
         endGame.style.display = "block";
-        questionsSelectionFour.style.display = "none";
+        questionsSectionFour.style.display = "none";
         score.textContent = 'Your score is: ' + totalScore + '.';
-        //let allDone = document.createElement('p');
-        //allDone.id = 'game-over';
-        //allDone.innerHTML = 'All done'
     }
-
+    answerFourthOne.addEventListener('click', theEnd);
+    answerFourthTwo.addEventListener('click', theEnd);
+    answerFourthThree.addEventListener('click', theEnd);
+    answerFourthFour.addEventListener('click', theEnd);
 
 const countdown = document.querySelector(".time");
 const timeUp = document.getElementById("time-up");
@@ -169,7 +185,7 @@ function countdownToGame() {
 }
 start.addEventListener('click', countdownToGame);
   
-  function endGame() {
+  function gameOver() {
   countdown.textContent = " ";
   const endCounter = timeUp.textContent = 'GAME OVER!';
   document.getElementsById('time-up').appendChild(endCounter);

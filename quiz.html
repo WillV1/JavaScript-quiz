@@ -17,7 +17,7 @@
         <div class="start-page">
             <button id="start">Start Quiz</button>
         </div>    
-        <div class="questions">
+        <div class="questions" id="question">
             <button class="answer" id="answer1-one">
             </button>
             <button class="answer" id="answer1-two">
@@ -27,7 +27,7 @@
             <button class="answer" id="answer1-four">
             </button>
         </div>
-        <div class="questions-two">
+        <div class="questions" id="question-two">
             <button class="answer" id="answer2-one">
             </button>
             <button class="answer" id="answer2-two">
@@ -37,7 +37,7 @@
             <button class="answer" id="answer2-four">
             </button>
         </div> 
-        <div class="questions-three">
+        <div class="questions" id="question-three">
             <button class="answer" id="answer3-one">
             </button>
             <button class="answer" id="answer3-two">
@@ -47,7 +47,7 @@
             <button class="answer" id="answer3-four">
             </button>
         </div>  
-        <div class="questions-four">
+        <div class="questions" id="question-four">
             <button class="answer" id="answer4-one">
             </button>
             <button class="answer" id="answer4-two">
@@ -61,8 +61,10 @@
             <h2>All Done!</h2>
             <p class="score"></p>
             <span><p>Enter Initials:</p></span>
-            <span><input type="text" name="player-name" value =""></input></span>
-            <span><button id="submit">Submit</button></span>
+            <form>
+                <span><input type="text" name="player-name" value =""></input></span>
+                <span><button id="submit">Submit</button></span>
+            </form>
         </div>     
     <h1 id="time-up"></h1>
     <script src="./script.js"></script>
