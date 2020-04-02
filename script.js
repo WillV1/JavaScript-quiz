@@ -69,7 +69,7 @@ for (i = 0; i < quizQuestionOne.length; i++){
 answerFirstThree.onclick = function (){
     if (answerFirstThree) {
         responseYes.style.display = "block";
-    } else if (answerFirstOne || answerFirstTwo || answerFirstFour) {
+    } else {
         responseNo.style.display = "block";
     }}
 }
@@ -182,7 +182,6 @@ function quizThree () {
     answerFourthFour.addEventListener('click', theEnd);
 
 const countdown = document.querySelector(".time");
-const timeUp = document.getElementById("time-up");
 
 var secondsLeft = 60;
 
@@ -201,6 +200,7 @@ start.addEventListener('click', countdownToGame);
   
   function gameOver() {
   countdown.textContent = " ";
-  const endCounter = timeUp.textContent = 'GAME OVER!';
-  document.getElementById('time-up').appendChild(endCounter);
+  let timeUp = document.createElement('p');
+  timeUp.textContent = 'GAME OVER!';
+  document.getElementById('time-up').appendChild(timeUp);
   }
