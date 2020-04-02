@@ -204,3 +204,10 @@ start.addEventListener('click', countdownToGame);
   timeUp.textContent = 'GAME OVER!';
   document.getElementById('time-up').appendChild(timeUp);
   }
+
+  const highScore = document.querySelector(".highscore");
+
+  function finalPage () {
+      
+  }
+  theEnd.addEventListener('click', finalPage);
