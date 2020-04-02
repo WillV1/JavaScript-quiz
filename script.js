@@ -26,6 +26,8 @@ let answerFourthThree = document.getElementById("answer4-three");
 let answerFourthFour = document.getElementById("answer4-four");
 
 let endGame = document.querySelector(".end-game");
+const score = document.querySelector(".score");
+const totalScore = 
 
 function quizOne () {
 let quizFirst = document.createElement('p');
@@ -142,8 +144,10 @@ function quizThree () {
     function gameOver (){   
         endGame.style.display = "block";
         questionsSelectionFour.style.display = "none";
-        let allDone = document.createElement('p');
-        allDone.id = 
+        score.textContent = 'Your score is: ' + totalScore + '.';
+        //let allDone = document.createElement('p');
+        //allDone.id = 'game-over';
+        //allDone.innerHTML = 'All done'
     }
 
 
