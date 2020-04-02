@@ -1,42 +1,44 @@
 let start = document.getElementById("start");
 let startQuiz = document.querySelector(".start-page");
 let challenge = document.querySelector(".challenge");
-let questions = GetElementById('question');
+let questions = document.getElementById('question');
 let answerFirstOne = document.getElementById("answer1-one");
 let answerFirstTwo = document.getElementById("answer1-two");
 let answerFirstThree = document.getElementById("answer1-three");
 let answerFirstFour = document.getElementById("answer1-four");
 
-let questionsSectionTwo = getElementById('question-two');
+let questionsSectionTwo = document.getElementById('question-two');
 let answerSecondOne = document.getElementById("answer2-one");
 let answerSecondTwo = document.getElementById("answer2-two");
 let answerSecondThree = document.getElementById("answer2-three");
 let answerSecondFour = document.getElementById("answer2-four");
 
-let questionsSectionThree = getElementById('question-three');
+let questionsSectionThree = document.getElementById('question-three');
 let answerThirdOne = document.getElementById("answer3-one");
 let answerThirdTwo = document.getElementById("answer3-two");
 let answerThirdThree = document.getElementById("answer3-three");
 let answerThirdFour = document.getElementById("answer3-four");
 
-let questionsSectionFour = getElementById('question-four');
+let questionsSectionFour = document.getElementById('question-four');
 let answerFourthOne = document.getElementById("answer4-one");
 let answerFourthTwo = document.getElementById("answer4-two");
 let answerFourthThree = document.getElementById("answer4-three");
 let answerFourthFour = document.getElementById("answer4-four");
 
 let endGame = document.querySelector(".end-game");
-const score = document.querySelector(".score");
+let score = 0;
 
 let responseYes = document.createElement('p');
 responseYes.id = 'response-yes'; 
+responseYes.style.display = "none";
 responseYes.innerHTML = 'Correct!';
-//document.querySelector(".questions").appendChild(responseYes);
+document.querySelector(".questions").appendChild(responseYes);
 
 let responseNo = document.createElement('p');
 responseNo.id = 'response-no'; 
+responseNo.style.display = "none";
 responseNo.innerHTML = 'Incorrect!';
-//document.querySelector(".questions").appendChild(responseYes);
+document.querySelector(".questions").appendChild(responseYes);
 
 
 function quizOne () {
@@ -53,7 +55,7 @@ const questionOne = {
     'D:': 'Numbers'
 }    
 const quizQuestionOne = Object.entries(questionOne);
-console.log(quizQuestionOne);
+
 questions.style.display = "block";
 challenge.style.display = "none";
 startQuiz.style.display = "none";
@@ -68,6 +70,10 @@ if (answerFirstThree.onclick){
     responseYes.style.display = "block";
 } else {
     responseNo.style.display = "block";
+}
+if (answerFirstThree.onclick){
+   score+=5;
+} else {secondsLeft -=10
 }
 }
 start.addEventListener('click', quizOne);
@@ -160,7 +166,7 @@ function quizThree () {
     function theEnd (){   
         endGame.style.display = "block";
         questionsSectionFour.style.display = "none";
-        score.textContent = 'Your score is: ' + totalScore + '.';
+        score.textContent = 'Your score is: ' + score + '.';
     }
     answerFourthOne.addEventListener('click', theEnd);
     answerFourthTwo.addEventListener('click', theEnd);
