@@ -38,7 +38,7 @@ let responseNo = document.createElement('p');
 responseNo.id = 'response-no'; 
 responseNo.style.display = "none";
 responseNo.innerHTML = 'Incorrect!';
-document.querySelector(".questions").appendChild(responseYes);
+document.querySelector(".questions").appendChild(responseNo);
 
 
 function quizOne () {
@@ -66,16 +66,24 @@ for (i = 0; i < quizQuestionOne.length; i++){
     answerFirstThree.textContent = quizQuestionOne[2];
     answerFirstFour.textContent = quizQuestionOne[3];
 }
-if (answerFirstThree.onclick){
-    responseYes.style.display = "block";
-} else {
-    responseNo.style.display = "block";
+answerFirstThree.onclick = function (){
+    if (answerFirstThree) {
+        responseYes.style.display = "block";
+    } else if (answerFirstOne || answerFirstTwo || answerFirstFour) {
+        responseNo.style.display = "block";
+    }}
 }
-if (answerFirstThree.onclick){
-   score+=5;
-} else {secondsLeft -=10
-}
-}
+
+//if (answerFirstThree.onclick){
+//    responseYes.style.display = "block";
+//} else {
+//    responseNo.style.display = "block";
+//}
+//if (answerFirstThree.onclick){
+//   score+=5;
+//} else {secondsLeft -=10
+//}
+//}
 start.addEventListener('click', quizOne);
 
 
@@ -185,14 +193,14 @@ function countdownToGame() {
   
       if(secondsLeft === 0) {
         clearInterval(timerInterval);
-        endGame();
+        gameOver();
       }
-    }, 1500);
+    }, 1000);
 }
 start.addEventListener('click', countdownToGame);
   
   function gameOver() {
   countdown.textContent = " ";
   const endCounter = timeUp.textContent = 'GAME OVER!';
-  document.getElementsById('time-up').appendChild(endCounter);
+  document.getElementById('time-up').appendChild(endCounter);
   }
