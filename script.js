@@ -1,7 +1,7 @@
 let start = document.getElementById("start");
 let startQuiz = document.querySelector(".start-page");
 let challenge = document.querySelector(".challenge");
-let questions = document.getElementById('question');
+//let questions = document.getElementById('question');
 //let answerFirstOne = document.getElementById("answer1-one");
 //let answerFirstTwo = document.getElementById("answer1-two");
 //let answerFirstThree = document.getElementById("answer1-three");
@@ -29,59 +29,159 @@ let endGame = document.querySelector(".end-game");
 let score = 0;
 
 let responseYes = document.createElement('p');
-responseYes.id = 'response-yes'; 
+responseYes.id = 'response-yes';
 responseYes.style.display = "none";
 responseYes.innerHTML = 'Correct!';
-document.querySelector(".questions").appendChild(responseYes);
+document.getElementById("question").appendChild(responseYes);
 
 let responseNo = document.createElement('p');
-responseNo.id = 'response-no'; 
+responseNo.id = 'response-no';
 responseNo.style.display = "none";
 responseNo.innerHTML = 'Incorrect!';
-document.querySelector(".questions").appendChild(responseNo);
+document.getElementById("question").appendChild(responseNo);
 
 const questionIndex = 0;
 
 let questionBank = [
     {
-      'Question': "Commonly used data types DO NOT include:",
-      'A:': 'Strings',
-      'B:': 'Booleans',
-      'C:': 'Alerts',
-      'D:': 'Numbers',
-      'Correct Answer': 'Alerts'
+        question: "Commonly used data types DO NOT include:",
+        answers: ['Strings', 'Booleans', 'Alerts', 'Numbers'],
+        correctAnswer: 'Alerts'
     },
     {
-      'Question': "Arrays in JavaScript can be used to store:",
-      'A:': 'Numbers and Strings',
-      'B:': 'Booleans',
-      'C:': 'Other Arrays',
-      'D:': 'All of the Above',
-      'Correct Answer': 'All of the Above'
+        question: "Arrays in JavaScript can be used to store:",
+        answers: ['Numbers and Strings', 'Booleans', 'Other Arrays', 'All of the Above'],
+        correctAnswer: 'All of the Above'
     },
     {
-        'Question': "A very useful tool during development and debugging for printing content to the debugger is:",
-        'A:': 'JavaScript',
-        'B:': 'For Loops',
-        'C:': 'Console.log',
-        'D:': 'Terminal/Bash',
-        'Correct Answer': 'Console.log'
+        question: "A very useful tool during development and debugging for printing content to the debugger is:",
+        answers: ['JavaScript', 'For Loops', 'Console.log', 'Terminal/Bash'],
+        correctAnswer: 'Console.log'
     },
     {
-        'Question': "An unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs is known as a(n):",
-        'A:': 'Object',
-        'B:': 'Array',
-        'C:': 'For Loop',
-        'D:': 'Function',
-        'Correct Answer': 'All of the Above'
-      }
-  ];
+        question: "An unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs is known as a(n):",
+        answers: ['Object', 'Array', 'For Loop', 'Function'],
+        correctAnswer: 'Object'
+    }
+];
+//function questions() {
+//    for (var questionIndex = 0; questionIndex < questionBank.length; questionIndex++) {
+//        var currentQuestion = document.createElement('div');
+//        currentQuestion.id = 'current-question';
+//        currentQuestion.textContent = questionBank[questionIndex].question;
+//        document.getElementById('question').appendChild(currentQuestion);
+//        for (var j = 0; j < currentQuestion.length; j++) {
+//            var answers = document.createElement('button');
+//            answers.textContent = currentQuestion[questionIndex].answers;
+//            currentQuestion[questionIndex].appendChild(answers);
+//        }
+//    }
+//}
+//start.addEventListener('click', questions);
 
-  function questionOne (){
-    var currentQuestionOne = questionBank [0]
-    document.getElementById("question").textContent = currentQuestion.question
-    for (var = 0 )
-  }  
+function questionOne() {
+    var currentQuestionOne = questionBank[0];
+    var firstQuestion = document.getElementById("question")
+    firstQuestion.textContent = currentQuestionOne.question;
+    var answerKeyOne = currentQuestionOne.answers;
+    for (var j = 0; j < answerKeyOne.length; j++) {
+        var answersOne = document.createElement("button");
+        answersOne.id = "answers-one";
+        answersOne.setAttribute("style", "background-color: purple;");
+        answersOne.textContent = answerKeyOne[j];
+        answersOne.addEventListener('click', questionTwo);
+        document.getElementById('question').append(answersOne);
+        var correctAnswerOne = currentQuestionOne.correctAnswer;
+        firstQuestion.appendChild(answersOne);
+    }
+      if (correctAnswerOne.onclick){
+           responseYes.style.display = "block"
+       } else {
+           responseNo.style.display = "block"
+       }
+    
+}
+start.addEventListener('click', questionOne);
+
+function questionTwo() {
+    var currentQuestionTwo = questionBank[1];
+    var secondQuestion = document.getElementById("question-two")
+    secondQuestion.textContent = currentQuestionTwo.question;
+    var answerKeyTwo = currentQuestionTwo.answers;
+    for (var k = 0; k < answerKeyTwo.length; k++) {
+        var answersTwo = document.createElement("button");
+        answersTwo.id = "answers-two";
+        answersTwo.setAttribute("style", "background-color: purple;");
+        answersTwo.textContent = answerKeyTwo[k];
+        answersTwo.addEventListener('click', questionThree);
+        document.getElementById('question-two').append(answersTwo);
+        var correctAnswerTwo = currentQuestionTwo.correctAnswer;
+        secondQuestion.appendChild(answersTwo);
+    }
+    
+
+    //  if (answerKey[2].onclick){
+    //       responseYes.style.display = "block"
+    //   } else {
+    //       responseNo.style.display = "block"
+    //   }
+    //}  
+}
+
+function questionThree() {
+    var currentQuestionThree = questionBank[2];
+    var thirdQuestion = document.getElementById("question-three")
+    thirdQuestion.textContent = currentQuestionThree.question;
+    var answerKeyThree = currentQuestionThree.answers;
+    for (var l = 0; l < answerKeyThree.length; l++) {
+        var answersThree = document.createElement("button");
+        answersThree.id = "answers-three";
+        answersThree.setAttribute("style", "background-color: purple;");
+        answersThree.textContent = answerKeyThree[l];
+        answersThree.addEventListener('click', questionFour);
+        document.getElementById('question-three').append(answersThree);
+        var correctAnswerThree = currentQuestionThree.correctAnswer;
+        thirdQuestion.appendChild(answersThree);
+    }
+    
+
+    //  if (answerKey[2].onclick){
+    //       responseYes.style.display = "block"
+    //   } else {
+    //       responseNo.style.display = "block"
+    //   }
+    //}  
+}
+
+function questionFour() {
+    var currentQuestionFour = questionBank[3];
+    var fourthQuestion = document.getElementById("question-four")
+    fourthQuestion.textContent = currentQuestionFour.question;
+    var answerKeyThree = currentQuestionThree.answers;
+    for (var l = 0; l < answerKeyThree.length; l++) {
+        var answersThree = document.createElement("button");
+        answersThree.id = "answers-three";
+        answersThree.setAttribute("style", "background-color: purple;");
+        answersThree.textContent = answerKeyThree[l];
+        answersThree.addEventListener('click', questionFour);
+        document.getElementById('question-three').append(answersThree);
+        var correctAnswerThree = currentQuestionThree.correctAnswer;
+        thirdQuestion.appendChild(answersThree);
+    }
+    
+
+    //  if (answerKey[2].onclick){
+    //       responseYes.style.display = "block"
+    //   } else {
+    //       responseNo.style.display = "block"
+    //   }
+    //}  
+}
+//answersOne.addEventListener('click', questionTwo);
+//start.addEventListener('click', questionTwo);
+//start.addEventListener('click', questionTwo);
+//start.addEventListener('click', questionTwo);
+
 //function quizOne () {
 //let quizFirst = document.createElement('p');
 //quizFirst.id = 'one';
@@ -127,7 +227,7 @@ let questionBank = [
 //} else {secondsLeft -=10
 //}
 //}
-//start.addEventListener('click', quizOne);
+
 
 
 //function quizTwo () {
@@ -137,7 +237,7 @@ let questionBank = [
 //    quizSecond.id = 'two';     
 //    quizSecond.innerHTML = 'Arrays in JavaScript can be used to store:';    
 //    document.getElementById('question-two').insertBefore(quizSecond, answerSecondOne);   
-    
+
 //    const questionTwo = {
 //        'A:': 'Other Arrays',
 //        'B:': 'Numbers and Strings',
@@ -145,7 +245,7 @@ let questionBank = [
 //        'D:': 'All of the Above'
 //    }    
 //    const quizQuestionTwo = Object.entries(questionTwo);
-   
+
 //    for (i = 0; i < quizQuestionTwo.length; i++){
 //        answerSecondOne.textContent = quizQuestionTwo[0];
 //        answerSecondTwo.textContent = quizQuestionTwo[1];
@@ -153,10 +253,10 @@ let questionBank = [
 //        answerSecondFour.textContent = quizQuestionTwo[3];
 //    }
 //}
-    //answerFirstOne.onclick = quizTwo;
-    //answerFirstTwo.onclick = quizTwo;
+//answerFirstOne.onclick = quizTwo;
+//answerFirstTwo.onclick = quizTwo;
 //    answerFirstThree.onclick = quizTwo;
-    //answerFirstFour.onclick = quizTwo;
+//answerFirstFour.onclick = quizTwo;
 
 //function quizThree () {
 //    questionsSectionThree.style.display = "block";
@@ -165,15 +265,14 @@ let questionBank = [
 //    quizThird.id = 'three';     
 //    quizThird.innerHTML = 'A very useful tool during development and debugging for printing content to the debugger is:';    
 //    document.getElementById('question-three').insertBefore(quizThird, answerThirdOne);   
-    
+
 //    const questionThree = {
 //        'A:': 'JavaScript',
 //        'B:': 'Terminal/Bash',
 //        'C:': 'Console.log',
 //        'D:': 'For Loops'
-    }    
 //    const quizQuestionThree = Object.entries(questionThree);
-   
+
 //    for (i = 0; i < quizQuestionThree.length; i++){
 //        answerThirdOne.textContent = quizQuestionThree[0];
 //        answerThirdTwo.textContent = quizQuestionThree[1];
@@ -193,7 +292,7 @@ let questionBank = [
 //        quizFourth.id = 'four';     
 //        quizFourth.innerHTML = 'An unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs is known as a(n):';    
 //        document.getElementById('question-four').insertBefore(quizFourth, answerFourthOne);   
-        
+
 //        const questionFour = {
 //            'A:': 'Object',
 //            'B:': 'Array',
@@ -201,7 +300,7 @@ let questionBank = [
 //            'D:': 'Loop'
 //        }    
 //        const quizQuestionFour = Object.entries(questionFour);
-       
+
 //        for (i = 0; i < quizQuestionFour.length; i++){
 //            answerFourthOne.textContent = quizQuestionFour[0];
 //            answerFourthTwo.textContent = quizQuestionFour[1];
@@ -213,45 +312,44 @@ let questionBank = [
 //        answerThirdTwo.onclick = quizFour;
 //        answerThirdThree.onclick = quizFour;
 //        answerThirdFour.onclick = quizFour;
-         
-    function theEnd (){   
-        endGame.style.display = "block";
-        questionsSectionFour.style.display = "none";
-        score.textContent = 'Your score is: ' + score + '.';
-    }
-    answerFourthOne.addEventListener('click', theEnd);
-    answerFourthTwo.addEventListener('click', theEnd);
-    answerFourthThree.addEventListener('click', theEnd);
-    answerFourthFour.addEventListener('click', theEnd);
+
+//    function theEnd (){   
+//        endGame.style.display = "block";
+//        questionsSectionFour.style.display = "none";
+//        score.textContent = 'Your score is: ' + score + '.';
+//    }
+//    answerFourthOne.addEventListener('click', theEnd);
+//    answerFourthTwo.addEventListener('click', theEnd);
+//    answerFourthThree.addEventListener('click', theEnd);
+//    answerFourthFour.addEventListener('click', theEnd);
 
 const countdown = document.querySelector(".time");
 
 var secondsLeft = 60;
 
 function countdownToGame() {
-    const timerInterval = setInterval(function() {
-      secondsLeft--;
-      countdown.textContent = 'Time: ' + secondsLeft;
-  
-      if(secondsLeft === 0) {
-        clearInterval(timerInterval);
-        gameOver();
-      }
+    const timerInterval = setInterval(function () {
+        secondsLeft--;
+        countdown.textContent = 'Time: ' + secondsLeft;
+
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            gameOver();
+        }
     }, 1000);
 }
 start.addEventListener('click', countdownToGame);
-  
-  function gameOver() {
-  countdown.textContent = " ";
-  let timeUp = document.createElement('p');
-  timeUp.textContent = 'GAME OVER!';
-  document.getElementById('time-up').appendChild(timeUp);
-  }
 
-  const highScore = document.querySelector(".highscore");
+function gameOver() {
+    countdown.textContent = " ";
+    let timeUp = document.createElement('p');
+    timeUp.textContent = 'GAME OVER!';
+    document.getElementById('time-up').appendChild(timeUp);
+}
 
-  function finalPage () {
+const highScore = document.querySelector(".highscore");
 
-  }
-  theEnd.addEventListener('click', finalPage);
-  }
+function finalPage() {
+
+}
+  //theEnd.addEventListener('click', finalPage);
