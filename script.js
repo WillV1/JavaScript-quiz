@@ -157,16 +157,16 @@ function questionFour() {
     var currentQuestionFour = questionBank[3];
     var fourthQuestion = document.getElementById("question-four")
     fourthQuestion.textContent = currentQuestionFour.question;
-    var answerKeyThree = currentQuestionThree.answers;
-    for (var l = 0; l < answerKeyThree.length; l++) {
-        var answersThree = document.createElement("button");
-        answersThree.id = "answers-three";
-        answersThree.setAttribute("style", "background-color: purple;");
-        answersThree.textContent = answerKeyThree[l];
-        answersThree.addEventListener('click', questionFour);
-        document.getElementById('question-three').append(answersThree);
-        var correctAnswerThree = currentQuestionThree.correctAnswer;
-        thirdQuestion.appendChild(answersThree);
+    var answerKeyFour = currentQuestionFour.answers;
+    for (var m = 0; m < answerKeyFour.length; m++) {
+        var answersFour = document.createElement("button");
+        answersFour.id = "answers-four";
+        answersFour.setAttribute("style", "background-color: purple;");
+        answersFour.textContent = answerKeyFour[m];
+        answersFour.addEventListener('click', theEnd);
+        document.getElementById('question-four').append(answersFour);
+        var correctAnswerFour = currentQuestionFour.correctAnswer;
+        fourthQuestion.appendChild(answersFour);
     }
     
 
@@ -313,15 +313,12 @@ function questionFour() {
 //        answerThirdThree.onclick = quizFour;
 //        answerThirdFour.onclick = quizFour;
 
-//    function theEnd (){   
-//        endGame.style.display = "block";
+    function theEnd (){   
+        endGame.style.display = "block";
 //        questionsSectionFour.style.display = "none";
-//        score.textContent = 'Your score is: ' + score + '.';
-//    }
-//    answerFourthOne.addEventListener('click', theEnd);
-//    answerFourthTwo.addEventListener('click', theEnd);
-//    answerFourthThree.addEventListener('click', theEnd);
-//    answerFourthFour.addEventListener('click', theEnd);
+        score.textContent = 'Your score is: ' + score + '.';
+    }
+
 
 const countdown = document.querySelector(".time");
 
