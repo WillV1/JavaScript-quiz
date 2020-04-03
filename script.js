@@ -67,16 +67,18 @@ function questionOne() {
         answersOne.setAttribute("style", "background-color: purple;");
         answersOne.textContent = answerKeyOne[j];
         answersOne.addEventListener('click', questionTwo);
-        document.getElementById('question').append(answersOne);
+        answersOne.addEventListener('click', checkAnswer);
         var correctAnswerOne = currentQuestionOne.correctAnswer;
-        firstQuestion.appendChild(answersOne);
+        correctAnswerOne.id = "correct-answer";
+        document.getElementById('question').append(answersOne);
     }
-      if (correctAnswerOne.onclick){
-           responseYes.style.display = "block"
-       } else {
-           responseNo.style.display = "block"
-       }
-    
+    function checkAnswer(){
+    if (correctAnswerOne.onclick) {
+        responseYes.style.display = "block"
+    } else {
+        responseNo.style.display = "block"
+    }
+}
 }
 start.addEventListener('click', questionOne);
 
@@ -93,9 +95,9 @@ function questionTwo() {
         answersTwo.addEventListener('click', questionThree);
         document.getElementById('question-two').append(answersTwo);
         var correctAnswerTwo = currentQuestionTwo.correctAnswer;
-        secondQuestion.appendChild(answersTwo);
+        
     }
-    
+
 
     //  if (answerKey[2].onclick){
     //       responseYes.style.display = "block"
@@ -118,9 +120,9 @@ function questionThree() {
         answersThree.addEventListener('click', questionFour);
         document.getElementById('question-three').append(answersThree);
         var correctAnswerThree = currentQuestionThree.correctAnswer;
-        thirdQuestion.appendChild(answersThree);
+        
     }
-    
+
 
     //  if (answerKey[2].onclick){
     //       responseYes.style.display = "block"
@@ -143,9 +145,9 @@ function questionFour() {
         answersFour.addEventListener('click', theEnd);
         document.getElementById('question-four').append(answersFour);
         var correctAnswerFour = currentQuestionFour.correctAnswer;
-        fourthQuestion.appendChild(answersFour);
+     
     }
-    
+
 
     //  if (answerKey[2].onclick){
     //       responseYes.style.display = "block"
@@ -166,11 +168,11 @@ function questionFour() {
 //}
 
 
-    function theEnd (){   
-        endGame.style.display = "block";
-//        questionsSectionFour.style.display = "none";
-        score.textContent = 'Your score is: ' + score + '.';
-    }
+function theEnd() {
+    endGame.style.display = "block";
+    //        questionsSectionFour.style.display = "none";
+    score.textContent = 'Your score is: ' + score + '.';
+}
 
 
 const countdown = document.querySelector(".time");
