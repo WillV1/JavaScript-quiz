@@ -42,7 +42,6 @@ let questionBank = [
     }
 ];
 function questions() {
-    //    for (var questionIndex = 0; questionIndex < questionBank.length; questionIndex++) {
     document.getElementById('question').innerHTML = '';
     var currentQuestion = document.createElement('div');
     var thisQuestion = questionBank[questionIndex];
@@ -57,10 +56,8 @@ function questions() {
         currentQuestion.appendChild(answers);
         answers.onclick = checkAnswer;
     }
-    //  }
 }
 start.addEventListener('click', questions);
-
 
 function checkAnswer() {
     var check = this.getAttribute('data-answer');
@@ -70,17 +67,15 @@ function checkAnswer() {
         score = score + 5;
         setTimeout(function () {
             responseYes.style.display = "none";
-        }, 2000)
+        }, 1000)
     } else {
         responseNo.style.display = "block";
         secondsLeft = secondsLeft - 10;
         setTimeout(function () {
             responseNo.style.display = "none";
-        }, 2000)
+        }, 1000)
     }
     questionIndex++
-
-
 
     if (questionIndex === questionBank.length) {
         theEnd()
@@ -88,122 +83,15 @@ function checkAnswer() {
         questions()
     }
 }
-// function questionOne() {
-//     var currentQuestionOne = questionBank[0];
-//     var firstQuestion = document.getElementById("question")
-//     firstQuestion.textContent = currentQuestionOne.question;
-//     var answerKeyOne = currentQuestionOne.answers;
-//     for (var j = 0; j < answerKeyOne.length; j++) {
-//         var answersOne = document.createElement("button");
-//         answersOne.id = "answers-one";
-//         answersOne.setAttribute("style", "background-color: purple;");
-//         answersOne.textContent = answerKeyOne[j];
-//         answersOne.addEventListener('click', questionTwo);
-//         answersOne.addEventListener('click', checkAnswer);
-//         var correctAnswerOne = currentQuestionOne.correctAnswer;
-//         correctAnswerOne.id = "correct-answer";
-//         document.getElementById('question').append(answersOne);
-//     }
-//     function checkAnswer(){
-//     if (correctAnswerOne.onclick === true) {
-//         responseYes.style.display = "block"
-//     } else {
-//         responseNo.style.display = "block"
-//     }
-// }
-// }
-// start.addEventListener('click', questionOne);
-
-// function questionTwo() {
-//     var currentQuestionTwo = questionBank[1];
-//     var secondQuestion = document.getElementById("question-two")
-//     secondQuestion.textContent = currentQuestionTwo.question;
-//     var answerKeyTwo = currentQuestionTwo.answers;
-//     for (var k = 0; k < answerKeyTwo.length; k++) {
-//         var answersTwo = document.createElement("button");
-//         answersTwo.id = "answers-two";
-//         answersTwo.setAttribute("style", "background-color: purple;");
-//         answersTwo.textContent = answerKeyTwo[k];
-//         answersTwo.addEventListener('click', questionThree);
-//         document.getElementById('question-two').append(answersTwo);
-//         var correctAnswerTwo = currentQuestionTwo.correctAnswer;
-
-//     }
-
-
-//     //  if (answerKey[2].onclick){
-//     //       responseYes.style.display = "block"
-//     //   } else {
-//     //       responseNo.style.display = "block"
-//     //   }
-//     //}  
-// }
-
-// function questionThree() {
-//     var currentQuestionThree = questionBank[2];
-//     var thirdQuestion = document.getElementById("question-three")
-//     thirdQuestion.textContent = currentQuestionThree.question;
-//     var answerKeyThree = currentQuestionThree.answers;
-//     for (var l = 0; l < answerKeyThree.length; l++) {
-//         var answersThree = document.createElement("button");
-//         answersThree.id = "answers-three";
-//         answersThree.setAttribute("style", "background-color: purple;");
-//         answersThree.textContent = answerKeyThree[l];
-//         answersThree.addEventListener('click', questionFour);
-//         document.getElementById('question-three').append(answersThree);
-//         var correctAnswerThree = currentQuestionThree.correctAnswer;
-
-//     }
-
-
-//     //  if (answerKey[2].onclick){
-//     //       responseYes.style.display = "block"
-//     //   } else {
-//     //       responseNo.style.display = "block"
-//     //   }
-//     //}  
-// }
-
-// function questionFour() {
-//     var currentQuestionFour = questionBank[3];
-//     var fourthQuestion = document.getElementById("question-four")
-//     fourthQuestion.textContent = currentQuestionFour.question;
-//     var answerKeyFour = currentQuestionFour.answers;
-//     for (var m = 0; m < answerKeyFour.length; m++) {
-//         var answersFour = document.createElement("button");
-//         answersFour.id = "answers-four";
-//         answersFour.setAttribute("style", "background-color: purple;");
-//         answersFour.textContent = answerKeyFour[m];
-//         answersFour.addEventListener('click', theEnd);
-//         document.getElementById('question-four').append(answersFour);
-//         var correctAnswerFour = currentQuestionFour.correctAnswer;
-
-//     }
-
-
-//     //  if (answerKey[2].onclick){
-//     //       responseYes.style.display = "block"
-//     //   } else {
-//     //       responseNo.style.display = "block"
-//     //   }
-//     //}  
-// }
-
-// //answerFirstThree.onclick = function (){
-// //    if (answerFirstThree) {
-// //        responseYes.style.display = "block";
-// //        setTimeout(quizTwo, 2000);
-// //    } else {
-// //        responseNo.style.display = "block";
-// //        setTimeout(quizTwo, 2000);
-// //    }}
-// //}
-
 
 function theEnd() {
     endGame.style.display = "block";
-    //        questionsSectionFour.style.display = "none";
-    score.textContent = 'Your score is: ' + score + '.';
+    //questionsSectionFour.style.display = "none";
+    let finalScore = document.createElement('p');
+    finalScore.id = 'final-score'; 
+    finalScore.textContent = 'Your final score is: ' + score + '.';
+    document.querySelector('.totalscore').appendChild(finalScore);
+    
 }
 
 
@@ -231,9 +119,11 @@ function gameOver() {
     document.getElementById('time-up').appendChild(timeUp);
 }
 
-const highScore = document.querySelector(".highscore");
+let highScore = document.getElementById('high-score');
+
+let submit = document.getElementById("submit");
 
 function finalPage() {
-
+    highScore.style.display = "block";
 }
-  //theEnd.addEventListener('click', finalPage);
+submit.addEventListener('click', finalPage);
