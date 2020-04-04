@@ -2,6 +2,7 @@ let start = document.getElementById("start");
 let submit = document.getElementById("submit");
 let startQuiz = document.querySelector(".start-page");
 let challenge = document.querySelector(".challenge");
+let Highscores = document.querySelector(".highscore");
 
 let endGame = document.querySelector(".end-game");
 let score = 0;
@@ -44,6 +45,8 @@ let questionBank = [
 ];
 function questions() {
     document.getElementById('question').innerHTML = '';
+    challenge.style.display = "none";
+    start.style.display = "none";
     var currentQuestion = document.createElement('div');
     var thisQuestion = questionBank[questionIndex];
     currentQuestion.id = 'current-question';
@@ -87,9 +90,9 @@ function checkAnswer() {
 
 function theEnd() {
     endGame.style.display = "block";
-    //questionsSectionFour.style.display = "none";
+    document.getElementById('question').style.display = "none";
     let finalScore = document.createElement('p');
-    finalScore.id = 'final-score'; 
+    finalScore.id = 'final-score';
     finalScore.textContent = 'Your final score is: ' + score + '.';
     document.querySelector('.totalscore').appendChild(finalScore);
     countdown.textContent = " ";
@@ -125,7 +128,33 @@ function gameOver() {
 let final = document.querySelector('.final-page');
 
 function finalPage(event) {
-    event.preventDefault(); 
-   final.style.display = "block";
+    event.preventDefault();
+    final.style.display = "block";
+    document.querySelector('.end-game').style.display = "none";
+    let startOver = document.createElement('button')
+    startOver.setAttribute('class', 'restart');
+    startOver.textContent = "Go Back";
+    startOver.addEventListener('click', returnToStart);
+    document.querySelector(".final-page").append(startOver);
+    let clear = document.createElement('button')
+    clear.setAttribute('class', 'clear-stats');
+    clear.textContent = "Clear Highscores";
+    document.querySelector(".final-page").append(clear);
 }
 submit.addEventListener('click', finalPage)
+
+let playerName = document.getElementsByName('player-name');
+
+let playerStats = {
+    name: 'player-name',
+    stat: score
+};
+
+localStorage.setItem("player-stats", JSON.stringify(playerStats));
+let highScoreList = JSON.parse(localStorage.getItem("player-stats"));
+
+function returnToStart() {
+    challenge.style.display = "block";
+    start.style.display = "block";
+    document.querySelector('.final-page').style.display = "none";
+}
