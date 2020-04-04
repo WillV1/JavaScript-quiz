@@ -8,29 +8,35 @@
 </head>
 <body>
     <span class="time"></span>
-    <span class="highscore">View Highscores</span>
-        <div class="challenge">
-            <h1>Coding Quiz Challenge</h1>
-            <p>Try to answer the code-related questions within the time limit.<br> Keep in mind that incorrect answers will
+    <span><button class="highscore">View Highscores</button></span>
+    <div id="scores-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>    
+    <div class="challenge">
+        <h1>Coding Quiz Challenge</h1>
+        <p>Try to answer the code-related questions within the time limit.<br> Keep in mind that incorrect answers will
             penalize your score time by ten seconds.</p>
-        </div>
-        <div class="start-page">
-            <button id="start">Start Quiz</button>
-        </div>  
-        <div id="question"></div>  
-        <div id="response"></div> 
-        <div class="end-game">
-            <h2>All Done!</h2>
-            <p class="totalscore"></p>
-            <span><p>Enter Initials:</p></span>
-            <form id="submit-page">
-                <span><input type="text" name="player-name" value =""></input></span>
-                <button id="submit">Submit</button>
-            </form> 
-        </div>
-        <div class="final-page">
-            <h2 id="high-score">HighScores</h2>
-        </div>
+    </div>
+    <div class="start-page">
+        <button id="start">Start Quiz</button>
+    </div>  
+    <div id="question"></div>  
+    <div id="response"></div> 
+    <div class="end-game">
+        <h2>All Done!</h2>
+        <p class="totalscore"></p>
+        <span><p>Enter Initials:</p></span>
+        <form id="submit-page">
+            <span><input type="text" name="player-name" value =""></input></span>
+            <button id="submit">Submit</button>
+        </form> 
+    </div>
+    <div class="final-page">
+        <h2 id="high-score">HighScores</h2>
+    </div>
     <h1 id="time-up"></h1>
     <script src="./script.js"></script>
 </body>

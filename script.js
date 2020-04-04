@@ -1,3 +1,5 @@
+//Starting variables
+
 let start = document.getElementById("start");
 let submit = document.getElementById("submit");
 let startQuiz = document.querySelector(".start-page");
@@ -18,6 +20,8 @@ responseNo.id = 'response-no';
 responseNo.style.display = "none";
 responseNo.innerHTML = 'Incorrect!';
 document.getElementById("response").appendChild(responseNo);
+
+// Sets up question bank and question/check answer functions
 
 let questionIndex = 0;
 
@@ -88,6 +92,8 @@ function checkAnswer() {
     }
 }
 
+// Sets up final score page
+
 function theEnd() {
     endGame.style.display = "block";
     document.getElementById('question').style.display = "none";
@@ -99,6 +105,7 @@ function theEnd() {
     clearInterval(timerInterval);
 }
 
+//Sets up game timer
 
 const countdown = document.querySelector(".time");
 
@@ -118,6 +125,8 @@ function countdownToGame() {
 }
 start.addEventListener('click', countdownToGame);
 
+//Sets up game over indicator for when player runs out of time
+
 function gameOver() {
     countdown.textContent = " ";
     let timeUp = document.createElement('p');
@@ -125,12 +134,33 @@ function gameOver() {
     document.getElementById('time-up').appendChild(timeUp);
 }
 
+//Sets up page to display score/high scores
+
 let final = document.querySelector('.final-page');
+
+let playerName = document.getElementsByName('player-name');
+
+let playerStats = {
+    playerName: 'player-name',
+    PlayerStat: score
+};
+
+localStorage.setItem("player-stats", JSON.stringify(playerStats));
+let highScoreList = JSON.parse(localStorage.getItem("player-stats"));
+
+let player = highScoreList.name;
+let playerScore = highScoreList.stat;
+let scoreList = [];
+scoreList.push('player', playerScore); 
 
 function finalPage(event) {
     event.preventDefault();
     final.style.display = "block";
     document.querySelector('.end-game').style.display = "none";
+    let scoreDisplay = document.createElement('p');
+    scoreDisplay.id = "score-display";
+    scoreDisplay.innerHTML = scoreList;
+    document.getElementById("high-score").append(scoreDisplay);
     let startOver = document.createElement('button')
     startOver.setAttribute('class', 'restart');
     startOver.textContent = "Go Back";
@@ -143,18 +173,25 @@ function finalPage(event) {
 }
 submit.addEventListener('click', finalPage)
 
-let playerName = document.getElementsByName('player-name');
-
-let playerStats = {
-    name: 'player-name',
-    stat: score
-};
-
-localStorage.setItem("player-stats", JSON.stringify(playerStats));
-let highScoreList = JSON.parse(localStorage.getItem("player-stats"));
-
 function returnToStart() {
     challenge.style.display = "block";
     start.style.display = "block";
     document.querySelector('.final-page').style.display = "none";
+}
+
+//Modal source code provided via. https://www.w3schools.com/howto/howto_css_modals.asp
+
+let scoreModal = document.getElementById("scores-modal");
+let openModal = document.querySelector(".highscore");
+let span = document.getElementsByClassName("close")[0];
+openModal.onclick = function() {
+  scoreModal.style.display = "block";
+}
+span.onclick = function() {
+  scoreModal.style.display = "none";
+}
+window.onclick = function(event) {
+ if (event.target == scoreModal) {
+    scoreModal.style.display = "none";
+  }
 }
