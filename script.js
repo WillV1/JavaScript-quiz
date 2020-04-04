@@ -1,4 +1,5 @@
 let start = document.getElementById("start");
+let submit = document.getElementById("submit");
 let startQuiz = document.querySelector(".start-page");
 let challenge = document.querySelector(".challenge");
 
@@ -121,9 +122,9 @@ function gameOver() {
 
 let final = document.querySelector('final-page');
 
-let submit = document.getElementById("submit");
+
 
 function finalPage() {
-    final.style.display = "block";
+    
 }
 submit.addEventListener('click', finalPage);
