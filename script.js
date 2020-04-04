@@ -92,16 +92,18 @@ function theEnd() {
     finalScore.id = 'final-score'; 
     finalScore.textContent = 'Your final score is: ' + score + '.';
     document.querySelector('.totalscore').appendChild(finalScore);
-    
+    countdown.textContent = " ";
+    clearInterval(timerInterval);
 }
 
 
 const countdown = document.querySelector(".time");
 
 var secondsLeft = 60;
+var timerInterval;
 
 function countdownToGame() {
-    const timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
         secondsLeft--;
         countdown.textContent = 'Time: ' + secondsLeft;
 
@@ -120,11 +122,10 @@ function gameOver() {
     document.getElementById('time-up').appendChild(timeUp);
 }
 
-let final = document.querySelector('final-page');
+let final = document.querySelector('.final-page');
 
-
-
-function finalPage() {
-    
+function finalPage(event) {
+    event.preventDefault(); 
+   final.style.display = "block";
 }
-submit.addEventListener('click', finalPage);
+submit.addEventListener('click', finalPage)
