@@ -119,11 +119,11 @@ function gameOver() {
     document.getElementById('time-up').appendChild(timeUp);
 }
 
-let highScore = document.getElementById('high-score');
+let final = document.querySelector('final-page');
 
 let submit = document.getElementById("submit");
 
 function finalPage() {
-    highScore.style.display = "block";
+    final.style.display = "block";
 }
 submit.addEventListener('click', finalPage);
