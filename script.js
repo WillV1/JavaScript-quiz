@@ -1,7 +1,7 @@
 //Starting variables
 
 let start = document.getElementById("start");
-let submit = document.getElementById("submit");
+let send = document.getElementById("send");
 let startQuiz = document.querySelector(".start-page");
 let challenge = document.querySelector(".challenge");
 let Highscores = document.querySelector(".highscore");
@@ -103,6 +103,7 @@ function theEnd() {
     document.querySelector('.totalscore').appendChild(finalScore);
     countdown.textContent = " ";
     clearInterval(timerInterval);
+    localStorage.setItem("player-score", score);
 }
 
 //Sets up game timer
@@ -138,20 +139,17 @@ function gameOver() {
 
 let final = document.querySelector('.final-page');
 
-let playerName = document.getElementsByName('player-name');
+function storeName(){
+    var input= document.getElementById("player-name");
+    localStorage.setItem("player-name", input.value);
+}   
 
-let playerStats = {
-    playerName: 'player-name',
-    PlayerStat: score
-};
 
-localStorage.setItem("player-stats", JSON.stringify(playerStats));
-let highScoreList = JSON.parse(localStorage.getItem("player-stats"));
+    let namePlayer = localStorage.getItem('player-name');
+    let scorePlayer = localStorage.getItem('player-score');
 
-let player = highScoreList.name;
-let playerScore = highScoreList.stat;
-let scoreList = [];
-scoreList.push('player', playerScore); 
+let highScore = [];
+highScore.push (namePlayer, scorePlayer);
 
 function finalPage(event) {
     event.preventDefault();
@@ -159,7 +157,7 @@ function finalPage(event) {
     document.querySelector('.end-game').style.display = "none";
     let scoreDisplay = document.createElement('p');
     scoreDisplay.id = "score-display";
-    scoreDisplay.innerHTML = scoreList;
+    scoreDisplay.innerHTML = highScore;
     document.getElementById("high-score").append(scoreDisplay);
     let startOver = document.createElement('button')
     startOver.setAttribute('class', 'restart');
@@ -171,7 +169,8 @@ function finalPage(event) {
     clear.textContent = "Clear Highscores";
     document.querySelector(".final-page").append(clear);
 }
-submit.addEventListener('click', finalPage)
+send.addEventListener('click', finalPage)
+
 
 function returnToStart() {
     challenge.style.display = "block";

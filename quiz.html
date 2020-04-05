@@ -28,10 +28,12 @@
     <div class="end-game">
         <h2>All Done!</h2>
         <p class="totalscore"></p>
-        <span><p>Enter Initials:</p></span>
-        <form id="submit-page">
-            <span><input type="text" name="player-name" value =""></input></span>
-            <button id="submit">Submit</button>
+        <form method="POST">
+            <div class="input-group">
+                <label for="player-name">Enter Initials:</label>
+                <input type="text" name="player-name" id="player-name" placeholder="Initials" />
+                <button onclick="storeName()" id="send">Submit</button>
+            </div>
         </form> 
     </div>
     <div class="final-page">
