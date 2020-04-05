@@ -133,23 +133,22 @@ function gameOver() {
     let timeUp = document.createElement('p');
     timeUp.textContent = 'GAME OVER!';
     document.getElementById('time-up').appendChild(timeUp);
+    location.reload();
 }
 
 //Sets up page to display score/high scores
 
 let final = document.querySelector('.final-page');
 
-function storeName(){
-    var input= document.getElementById("player-name");
+function storeName() {
+    var input = document.getElementById("player-name");
     localStorage.setItem("player-name", input.value);
-}   
-
-
-    let namePlayer = localStorage.getItem('player-name');
-    let scorePlayer = localStorage.getItem('player-score');
+}
+let namePlayer = localStorage.getItem('player-name');
+let scorePlayer = localStorage.getItem('player-score');
 
 let highScore = [];
-highScore.push (namePlayer, scorePlayer);
+highScore.push(namePlayer, scorePlayer);
 
 function finalPage(event) {
     event.preventDefault();
@@ -161,21 +160,26 @@ function finalPage(event) {
     document.getElementById("high-score").append(scoreDisplay);
     let startOver = document.createElement('button')
     startOver.setAttribute('class', 'restart');
+    startOver.setAttribute('style', 'background-color: purple; border-radius: 5px; color: white; text-align: center; display: flex;');
     startOver.textContent = "Go Back";
     startOver.addEventListener('click', returnToStart);
     document.querySelector(".final-page").append(startOver);
     let clear = document.createElement('button')
     clear.setAttribute('class', 'clear-stats');
+    clear.setAttribute('style', 'background-color: purple; border-radius: 5px; color: white; text-align: center; display: flex;');
     clear.textContent = "Clear Highscores";
+    clear.addEventListener("click", removeHighscores);
     document.querySelector(".final-page").append(clear);
 }
 send.addEventListener('click', finalPage)
 
+function removeHighscores() {
+    localStorage.clear();
+}
 
 function returnToStart() {
-    challenge.style.display = "block";
-    start.style.display = "block";
-    document.querySelector('.final-page').style.display = "none";
+    location.reload();
+    return false;
 }
 
 //Modal source code provided via. https://www.w3schools.com/howto/howto_css_modals.asp
@@ -183,14 +187,14 @@ function returnToStart() {
 let scoreModal = document.getElementById("scores-modal");
 let openModal = document.querySelector(".highscore");
 let span = document.getElementsByClassName("close")[0];
-openModal.onclick = function() {
-  scoreModal.style.display = "block";
+openModal.onclick = function () {
+    scoreModal.style.display = "block";
 }
-span.onclick = function() {
-  scoreModal.style.display = "none";
-}
-window.onclick = function(event) {
- if (event.target == scoreModal) {
+span.onclick = function () {
     scoreModal.style.display = "none";
-  }
+}
+window.onclick = function (event) {
+    if (event.target == scoreModal) {
+        scoreModal.style.display = "none";
+    }
 }
